@@ -248,7 +248,7 @@ treecl.fit(X_train,y_train)
 
 print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
 
-elif page==pages[4]:
+
   st.write('Modélisation')
   modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
