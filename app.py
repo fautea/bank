@@ -250,7 +250,7 @@ print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train
 
 
 st.write('Modélisation')
-  modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
+modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
   if modèle_sélectionné=='Régression logistique':
     st.metric(label="accuracy", value=reglog.score(X_train, y_train))
