@@ -38,9 +38,8 @@ if st.checkbox("Afficher variables numériques: cols = ['age','balance','day','c
 scaler = StandardScaler()
 cols = ['age','balance','day','campaign','previous','duration']
 if st.checkbox("Afficher code"):
-  
-st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
-st.write("X_test[cols] = scaler.transform(X_test[cols]")
+  st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
+  st.write("X_test[cols] = scaler.transform(X_test[cols]")
   
 def replace_yes_no(x):
   if x == 'no':
