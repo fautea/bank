@@ -19,7 +19,7 @@ bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
 st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
-bank[deposit].head()
+bank['deposit'].head()
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
