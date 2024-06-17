@@ -58,7 +58,15 @@ def replace_month(x):
     return 11
   if x == 'dec':
     return 12
-
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.metrics import f1_score
+from imblearn.over_sampling import RandomOverSampler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
 X_train = pd.get_dummies(X_train, dtype = 'int')
