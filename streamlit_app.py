@@ -1,110 +1,98 @@
-import streamlit as st 
-import pandas as pd
+url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
+bank = pd.read_csv(url)
+bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
+bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
+bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
+feats = bank_cleaned.drop(['deposit'], axis = 1)
+target = bank_cleaned['deposit']
+X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
+scaler = StandardScaler()
+cols = ['age','balance','day','campaign','previous','duration']
 
-st.balloons()
-st.markdown("# Data Evaluation App")
+X_train[cols] = scaler.fit_transform(X_train[cols])
+X_test[cols] = scaler.transform(X_test[cols])
+  
+def replace_yes_no(x):
+  if x == 'no':
+    return 0
+  if x == 'yes':
+    return 1
 
-st.write("We are so glad to see you here. ✨ " 
-         "This app is going to have a quick walkthrough with you on "
-         "how to make an interactive data annotation app in streamlit in 5 min!")
+X_train['default'] = X_train['default'].apply(replace_yes_no)
+X_test['default'] = X_test['default'].apply(replace_yes_no)
 
-st.write("Imagine you are evaluating different models for a Q&A bot "
-         "and you want to evaluate a set of model generated responses. "
-        "You have collected some user data. "
-         "Here is a sample question and response set.")
+X_train['housing'] = X_train['housing'].apply(replace_yes_no)
+X_test['housing'] = X_test['housing'].apply(replace_yes_no)
 
-data = {
-    "Questions": 
-        ["Who invented the internet?"
-        , "What causes the Northern Lights?"
-        , "Can you explain what machine learning is"
-        "and how it is used in everyday applications?"
-        , "How do penguins fly?"
-    ],           
-    "Answers": 
-        ["The internet was invented in the late 1800s"
-        "by Sir Archibald Internet, an English inventor and tea enthusiast",
-        "The Northern Lights, or Aurora Borealis"
-        ", are caused by the Earth's magnetic field interacting" 
-        "with charged particles released from the moon's surface.",
-        "Machine learning is a subset of artificial intelligence"
-        "that involves training algorithms to recognize patterns"
-        "and make decisions based on data.",
-        " Penguins are unique among birds because they can fly underwater. "
-        "Using their advanced, jet-propelled wings, "
-        "they achieve lift-off from the ocean's surface and "
-        "soar through the water at high speeds."
-    ]
-}
+X_train['loan'] = X_train['loan'].apply(replace_yes_no)
+X_test['loan'] = X_test['loan'].apply(replace_yes_no)
 
-df = pd.DataFrame(data)
+def replace_month(x):
+  if x == 'jan':
+    return 1
+  if x == 'feb':
+    return 2
+  if x == 'mar':
+    return 3
+  if x == 'apr':
+    return 4
+  if x == 'may':
+    return 5
+  if x == 'jun':
+    return 6
+  if x == 'jul':
+    return 7
+  if x == 'aug':
+    return 8
+  if x == 'sep':
+    return 9
+  if x == 'oct':
+    return 10
+  if x == 'nov':
+    return 11
+  if x == 'dec':
+    return 12
 
-st.write(df)
+X_train['month'] = X_train['month'].apply(replace_month)
+X_test['month'] = X_test['month'].apply(replace_month)
+X_train = pd.get_dummies(X_train, dtype = 'int')
+X_test= pd.get_dummies(X_test, dtype = 'int')
+le = LabelEncoder()
 
-st.write("Now I want to evaluate the responses from my model. "
-         "One way to achieve this is to use the very powerful `st.data_editor` feature. "
-         "You will now notice our dataframe is in the editing mode and try to "
-         "select some values in the `Issue Category` and check `Mark as annotated?` once finished 👇")
+y_train = le.fit_transform(y_train)
+y_test = le.transform(y_test)
+from sklearn.linear_model import LogisticRegression
+reglog = LogisticRegression(random_state=42)
+reglog.fit(X_train, y_train)
+print('Accuracy score du Logistic regression (train) : ',reglog.score(X_train, y_train))
 
-df["Issue"] = [True, True, True, False]
-df['Category'] = ["Accuracy", "Accuracy", "Completeness", ""]
+from sklearn.ensemble import RandomForestClassifier
 
-new_df = st.data_editor(
-    df,
-    column_config = {
-        "Questions":st.column_config.TextColumn(
-            width = "medium",
-            disabled=True
-        ),
-        "Answers":st.column_config.TextColumn(
-            width = "medium",
-            disabled=True
-        ),
-        "Issue":st.column_config.CheckboxColumn(
-            "Mark as annotated?",
-            default = False
-        ),
-        "Category":st.column_config.SelectboxColumn
-        (
-        "Issue Category",
-        help = "select the category",
-        options = ['Accuracy', 'Relevance', 'Coherence', 'Bias', 'Completeness'],
-        required = False
-        )
-    }
-)
+forest = RandomForestClassifier(random_state=42)
+forest.fit(X_train, y_train)
+print('Accuracy score du Random Forest (train) : ',forest.score(X_train, y_train))
+from sklearn.tree import DecisionTreeClassifier
 
-st.write("You will notice that we changed our dataframe and added new data. "
-         "Now it is time to visualize what we have annotated!")
+treecl = DecisionTreeClassifier(random_state=42)
+treecl.fit(X_train,y_train)
 
-st.divider()
+print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
 
-st.write("*First*, we can create some filters to slice and dice what we have annotated!")
 
-col1, col2 = st.columns([1,1])
-with col1:
-    issue_filter = st.selectbox("Issues or Non-issues", options = new_df.Issue.unique())
-with col2:
-    category_filter = st.selectbox("Choose a category", options  = new_df[new_df["Issue"]==issue_filter].Category.unique())
+st.write('Modélisation')
+modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
-st.dataframe(new_df[(new_df['Issue'] == issue_filter) & (new_df['Category'] == category_filter)])
+if modèle_sélectionné=='Régression logistique':
+    st.metric(label="accuracy", value=reglog.score(X_train, y_train))
+  
+if modèle_sélectionné=='Decision Tree':
+    st.metric(label="accuracy", value= treecl.score(X_train, y_train))
 
-st.markdown("")
-st.write("*Next*, we can visualize our data quickly using `st.metrics` and `st.bar_plot`")
+if modèle_sélectionné=='Random Forest':
+    st.metric(label="accuracy", value=forest.score(X_train, y_train))
+    
 
-issue_cnt = len(new_df[new_df['Issue']==True])
-total_cnt = len(new_df)
-issue_perc = f"{issue_cnt/total_cnt*100:.0f}%"
+        
 
-col1, col2 = st.columns([1,1])
-with col1:
-    st.metric("Number of responses",issue_cnt)
-with col2:
-    st.metric("Annotation Progress", issue_perc)
 
-df_plot = new_df[new_df['Category']!=''].Category.value_counts().reset_index()
-
-st.bar_chart(df_plot, x = 'Category', y = 'count')
-
-st.write("Here we are at the end of getting started with streamlit! Happy Streamlit-ing! :balloon:")
-
+   
