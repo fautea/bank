@@ -6,6 +6,15 @@ import seaborn as sns
 
 url = 'https://raw.githubusercontent.com/sdrcr74/bank_nov23/main/bank.csv'
 bank = pd.read_csv(url)
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.metrics import f1_score
+from imblearn.over_sampling import RandomOverSampler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
 bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
