@@ -30,8 +30,8 @@ if st.checkbox("Afficher feats"):
     st.dataframe(feats)
 if st.checkbox("Afficher target"):
     st.dataframe(target)
-
-X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
+st.write('Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test x_test')
+st.write('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
 scaler = StandardScaler()
 cols = ['age','balance','day','campaign','previous','duration']
 
