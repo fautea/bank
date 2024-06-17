@@ -37,7 +37,7 @@ cols = ['age','balance','day','campaign','previous','duration']
 if st.checkbox("Afficher variables numériques"):
    st.dataframe(cols)
 scaler = StandardScaler()
-cols = ['age','balance','day','campaign','previous','duration']
+cols = bank_cleaned['age','balance','day','campaign','previous','duration']
 X_train[cols] = scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 if st.checkbox("Afficher code"):
