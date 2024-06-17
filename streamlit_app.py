@@ -36,7 +36,7 @@ st.write("Puis nous allons dans un deuxième temps appliquer la standardisation 
 cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
-cols1 = bank_cleaned['age','balance','day','campaign','previous','duration']
+cols1 = bank_cleaned[bank_cleaned['age','balance','day','campaign','previous','duration']]
 if st.checkbox("Afficher variables numériques"):
    st.dataframe(cols1)
 
