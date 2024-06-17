@@ -33,6 +33,7 @@ if st.checkbox("Afficher target"):
 st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test")
 st.write('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
 st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques")
+cols = ['age','balance','day','campaign','previous','duration']
 if st.checkbox("Afficher variables numériques: cols = ['age','balance','day','campaign','previous','duration'] "):
    st.dataframe('bank_cleaned["cols"]')
 scaler = StandardScaler()
