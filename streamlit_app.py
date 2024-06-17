@@ -20,9 +20,14 @@ bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
 st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
 st.write(bank_cleaned['deposit'].head())
-st.write('Le jeu de données sera donc séparé en 2 variables: "feats" et "target"')
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
+st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
+if st.checkbox("Afficher feats"):
+    st.dataframe(feats)
+if st.checkbox("Afficher target"):
+    st.dataframe(target)
+
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
 scaler = StandardScaler()
 cols = ['age','balance','day','campaign','previous','duration']
