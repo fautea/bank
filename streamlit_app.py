@@ -35,7 +35,7 @@ st.write('X_train, X_test, y_train, y_test = train_test_split(feats, target, tes
 st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques")
 cols = ['age','balance','day','campaign','previous','duration']
 if st.checkbox("Afficher variables numériques:"):
-   st.dataframe('bank_cleaned["cols"]')
+   st.dataframe(cols)
 scaler = StandardScaler()
 cols = ['age','balance','day','campaign','previous','duration']
 if st.checkbox("Afficher code"):
