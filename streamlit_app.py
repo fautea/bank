@@ -133,7 +133,7 @@ if modèle_sélectionné=='Decision Tree':
 if modèle_sélectionné=='Random Forest':
     st.metric(label="accuracy", value=forest.score(X_train, y_train))
     st.metric(label="accuracy y_train", value=reglog.score(X_test, y_test))
-st.write('Le modèle RandomForest est donc le meilleur modèle au vu des résultats mais nous constatons un problème d'overfitting')
+st.write("Le modèle RandomForest est donc le meilleur modèle au vu des résultats mais nous constatons un problème d'overfitting")
 st.write('Afin d’évaluer la précision de notre modèle, nous avons vérifié sa volatilité avec la technique de validation croisée sur le modèle RandomForest. Celle-ci étant peu volatile [0.77762106 0.74424071 0.78232252 0.83921016 0.82267168] , nous pouvons considérer que le modèle est fiable via un train_test_split.')
 st.write('Techniques utilisées pour baisser l'overfitting')
 techniques=st.selectbox(label='Techniques', options=['Importance_feature','Suppression variable Duration','Bagging','RandomOverSampler','GridSearchCV'])
