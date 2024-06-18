@@ -45,7 +45,13 @@ X_test[cols] = scaler.transform(X_test[cols])
 if st.checkbox("code"):
   st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
   st.write("X_test[cols] = scaler.transform(X_test[cols]")
-  
+st.write("Ensuite nous encoderons les variables explicatives")  
+st.write('De valeur booléenne avec la formule:')
+st.write('def replace_yes_no(x)')
+st.write('    if x=='no':')
+st.write('        return 0')
+st.write('    if x=='yes':')
+st.write('        return 1')
 def replace_yes_no(x):
   if x == 'no':
     return 0
@@ -60,7 +66,7 @@ X_test['housing'] = X_test['housing'].apply(replace_yes_no)
 
 X_train['loan'] = X_train['loan'].apply(replace_yes_no)
 X_test['loan'] = X_test['loan'].apply(replace_yes_no)
-
+st.write('Nous utliserons égalemet une définition pour la variable month en remplaçant le mois de janvier par 1, février par 2 etc')
 def replace_month(x):
   if x == 'jan':
     return 1
@@ -97,10 +103,16 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
+st.write('Nous utiliserons la fonction get.dummies pour les variables de chaîne de caractères')
+st.write('X_train = pd.get_dummies(X_train, dtype = 'int')')
+st.write('X_test= pd.get_dummies(X_test, dtype = 'int')')
+
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
+st.write('Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder')
 le = LabelEncoder()
-
+st.write('y_train = le.fit_transform(y_train)')
+st.write('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
