@@ -109,7 +109,7 @@ st.write('X_test= pd.get_dummies(X_test, dtype = 'int')')
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
-st.write('Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder')
+st.write("Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
 st.write('y_train = le.fit_transform(y_train)')
 st.write('le.transform(y_test)')
