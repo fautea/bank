@@ -137,7 +137,7 @@ st.write('Modélisation')
 modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
 if modèle_sélectionné=='Régression logistique':
-    st.metric(label="accuracy y_train", value=reglog.score(X_train, y_train))
+    st.metric(label="accuracy y_train", value=reglog.score(round(X_train, y_train),2)
     st.metric(label="accuracy y_train", value=reglog.score(X_test, y_test))
     
 if modèle_sélectionné=='Decision Tree':
