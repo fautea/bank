@@ -48,10 +48,10 @@ if st.checkbox("code"):
 st.write("Ensuite nous encoderons les variables explicatives")  
 st.write('De valeur booléenne avec la formule:')
 st.write('def replace_yes_no(x)')
-st.write('    if x=='no':')
-st.write('        return 0')
-st.write('    if x=='yes':')
-st.write('        return 1')
+st.write("    if x=='no':")
+st.write("        return 0")
+st.write("    if x=='yes':")
+st.write("        return 1")
 def replace_yes_no(x):
   if x == 'no':
     return 0
