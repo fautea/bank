@@ -28,7 +28,7 @@ if st.checkbox("Afficher code"):
     st.write("target = bank_cleaned['deposit']")
 if st.checkbox("Afficher feats"):
     st.dataframe(feats)
-if st.checkbox("Afficher target"):
+if st.button("target"):
     st.dataframe(target)
 st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
