@@ -22,7 +22,7 @@ st.write('Le modèle choisi sera la classification en raison des valeurs discrè
 st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
-st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
+st.write_stream('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
 if st.checkbox("Afficher code"):
     st.write("feats = bank_cleaned.drop(['deposit'], axis = 1)")
     st.write("target = bank_cleaned['deposit']")
@@ -33,7 +33,7 @@ if st.checkbox("Afficher target"):
 st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
 st.write('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
-st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques")
+st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques:")
 cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
