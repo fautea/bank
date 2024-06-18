@@ -30,7 +30,7 @@ if st.checkbox("Afficher feats"):
     st.dataframe(feats)
 if st.checkbox("Afficher target"):
     st.dataframe(target)
-st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test")
+st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 st.write('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
 st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques")
 cols = ['age','balance','day','campaign','previous','duration']
@@ -39,7 +39,7 @@ cols =['age','balance','day','campaign','previous','duration']
 cols1 = bank_cleaned[['age','balance','day','campaign','previous','duration']]
 if st.checkbox("Afficher variables numériques"):
    st.dataframe(cols1)
-X_train[cols] = scaler.fit_transform(X_train[cols])
+X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 if st.checkbox("Afficher code"):
   st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
