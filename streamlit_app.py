@@ -118,7 +118,7 @@ y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
 reglog = LogisticRegression(random_state=42)
 reglog.fit(X_train, y_train)
-print("Accuracy score du Logistic regression (train) : ',reglog.score(round(X_train, y_train,2)")
+print("Accuracy score du Logistic regression (train) : ',reglog.score(X_train, y_train)")
 
 from sklearn.ensemble import RandomForestClassifier
 
@@ -137,7 +137,7 @@ st.write('Modélisation')
 modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
 if modèle_sélectionné=='Régression logistique':
-    st.metric(label="accuracy y_train", value=reglog.score(round(X_train, y_train),2))
+    st.metric(label="accuracy y_train", value=round(reglog.score(X_train, y_train),2))
     st.metric(label="accuracy y_train", value=reglog.score(X_test, y_test))
     
 if modèle_sélectionné=='Decision Tree':
