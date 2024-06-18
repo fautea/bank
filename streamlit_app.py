@@ -42,7 +42,7 @@ if st.checkbox("Afficher variables numériques"):
    st.dataframe(cols1)
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
-if st.checkbox("Afficher code"):
+if st.checkbox("code"):
   st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
   st.write("X_test[cols] = scaler.transform(X_test[cols]")
   
