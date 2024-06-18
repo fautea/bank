@@ -118,7 +118,7 @@ y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
 reglog = LogisticRegression(random_state=42)
 reglog.fit(X_train, y_train)
-print('Accuracy score du Logistic regression (train) : ',reglog.score(round(X_train, y_train),2)
+print("Accuracy score du Logistic regression (train) : ',reglog.score(round(X_train, y_train),2")
 
 from sklearn.ensemble import RandomForestClassifier
 
