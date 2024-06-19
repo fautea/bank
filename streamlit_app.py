@@ -106,15 +106,17 @@ from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
 st.write('5. Nous nous servirons de la fonction get.dummies pour les variables de chaîne de caractères')
-st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
-st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
+if st.button('get_dummies'):
+   st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
+   st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-st.code('y_train= le.fit_transform(y_train)')
-st.code('le.transform(y_test)')
+if st.button('LabelEncoder'):
+   st.code('y_train= le.fit_transform(y_train)')
+   st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
