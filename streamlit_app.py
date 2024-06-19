@@ -18,15 +18,15 @@ from sklearn.impute import SimpleImputer
 bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
-st.subtitle('Choix du modèle')
+st.subheader('Choix du modèle')
 st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
 st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
 if st.checkbox("Afficher code"):
-    st.write("feats = bank_cleaned.drop(['deposit'], axis = 1)")
-    st.write("target = bank_cleaned['deposit']")
+    st.code("feats = bank_cleaned.drop(['deposit'], axis = 1)")
+    st.code("target = bank_cleaned['deposit']")
 if st.button("feats"):
     st.dataframe(feats)
 if st.button("target"):
