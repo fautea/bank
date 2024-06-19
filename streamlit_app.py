@@ -68,7 +68,7 @@ X_test['housing'] = X_test['housing'].apply(replace_yes_no)
 
 X_train['loan'] = X_train['loan'].apply(replace_yes_no)
 X_test['loan'] = X_test['loan'].apply(replace_yes_no)
-st.write('4. Nous utliserons également une définition pour la variable month en remplaçant le mois de janvier par 1, février par 2 etc')
+st.write('4. Nous utiliserons également une définition pour la variable month en remplaçant le mois de janvier par 1, février par 2 etc')
 def replace_month(x):
   if x == 'jan':
     return 1
@@ -105,7 +105,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
-st.write('5. Nous utiliserons la fonction get.dummies pour les variables de chaîne de caractères')
+st.write('5. Nous nous servirons de la fonction get.dummies pour les variables de chaîne de caractères')
 st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
 st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
