@@ -24,14 +24,14 @@ st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
-if st.checkbox("Code"):
+if st.button("Code"):
     st.code("feats = bank_cleaned.drop(['deposit'], axis = 1)")
     st.code("target = bank_cleaned['deposit']")
 if st.button("feats"):
     st.dataframe(feats)
 if st.button("target"):
     st.dataframe(target)
-st.write("Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
+st.write("1. Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
 st.code('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
 st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques:")
@@ -39,19 +39,20 @@ cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
 cols1 = bank_cleaned[['age','balance','day','campaign','previous','duration']]
-if st.checkbox("Afficher variables numériques"):
+if st.checkbox("Variables numériques"):
    st.dataframe(cols1)
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
-if st.checkbox("code"):
+if st.button("code"):
   st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
   st.code("X_test[cols] = scaler.transform(X_test[cols]")
-st.write("Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule:")  
-st.code('def replace_yes_no(x)')
-st.code("if x=='no':")
-st.code("  return 0")
-st.code("if x=='yes':")
-st.code("  return 1")
+st.write("Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule:")
+if st.button('Définition'):
+   st.code('def replace_yes_no(x)')
+   st.code("if x=='no':")
+   st.code("  return 0")
+   st.code("if x=='yes':")
+   st.code("  return 1")
 def replace_yes_no(x):
   if x == 'no':
     return 0
