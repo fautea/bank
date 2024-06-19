@@ -158,7 +158,7 @@ if techniques=='Importance_feature':
 feat_importances = pd.DataFrame(forest.feature_importances_, index=X_test.columns, columns =['Importance'] )
 feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
 feat_importances.plot(kind='bar', figsize=(8,6))
-  st.pyplot(feat_importances.plot(kind='bar', figsize=(8,6).figure)
+   st.pyplot(feat_importances.plot(kind='bar', figsize=(8,6).figure)
   
 
 
