@@ -44,15 +44,15 @@ if st.checkbox("Afficher variables numériques"):
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 if st.checkbox("code"):
-  st.write("X_train[cols] = scaler.fit_transform(X_train[cols]")
-  st.write("X_test[cols] = scaler.transform(X_test[cols]")
+  st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
+  st.code("X_test[cols] = scaler.transform(X_test[cols]")
 st.write("Ensuite nous encoderons les variables explicatives")  
 st.write('De valeur booléenne avec la formule:')
-st.write('def replace_yes_no(x)')
-st.write("    if x=='no':")
-st.write("        return 0")
-st.write("    if x=='yes':")
-st.write("        return 1")
+st.code('def replace_yes_no(x)')
+st.code("    if x=='no':")
+st.code("        return 0")
+st.code("    if x=='yes':")
+st.code("        return 1")
 def replace_yes_no(x):
   if x == 'no':
     return 0
