@@ -111,8 +111,8 @@ X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
 st.write("Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-st.write('y_train = le.fit_transform(y_train)')
-st.write('le.transform(y_test)')
+st.code('y_train = le.fit_transform(y_train)')
+st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
@@ -133,7 +133,7 @@ treecl.fit(X_train,y_train)
 print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train))
 
 
-st.write('Modélisation')
+st.subheader('Résultats du modèle')
 modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
 if modèle_sélectionné=='Régression logistique':
