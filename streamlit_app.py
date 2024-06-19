@@ -34,7 +34,7 @@ if st.button("target"):
 st.write("1. Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
 st.code('X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42')
-st.write("Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques:")
+st.write("2. Puis nous allons dans un deuxième temps appliquer la standardisation des variables numériques:")
 cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
@@ -46,7 +46,7 @@ X_test[cols] = scaler.transform(X_test[cols])
 if st.button("code"):
   st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
   st.code("X_test[cols] = scaler.transform(X_test[cols]")
-st.write("Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule:")
+st.write("3. Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule:")
 if st.button('Définition'):
    st.code('def replace_yes_no(x)')
    st.code("if x=='no':")
@@ -67,7 +67,7 @@ X_test['housing'] = X_test['housing'].apply(replace_yes_no)
 
 X_train['loan'] = X_train['loan'].apply(replace_yes_no)
 X_test['loan'] = X_test['loan'].apply(replace_yes_no)
-st.write('Nous utliserons égalemet une définition pour la variable month en remplaçant le mois de janvier par 1, février par 2 etc')
+st.write('4. Nous utliserons également une définition pour la variable month en remplaçant le mois de janvier par 1, février par 2 etc')
 def replace_month(x):
   if x == 'jan':
     return 1
@@ -104,15 +104,15 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
-st.write('Nous utiliserons la fonction get.dummies pour les variables de chaîne de caractères')
-st.write("X_train = pd.get_dummies(X_train, dtype = 'int')")
-st.write("X_test= pd.get_dummies(X_test, dtype = 'int')")
+st.write('5. Nous utiliserons la fonction get.dummies pour les variables de chaîne de caractères')
+st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
+st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
-st.write("Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
+st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-st.code('y_train = le.fit_transform(y_train)')
+st.code('y_train= le.fit_transform(y_train)')
 st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
