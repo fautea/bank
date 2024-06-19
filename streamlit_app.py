@@ -161,13 +161,14 @@ feat_importances.plot(kind='bar', figsize=(8,6))
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
 st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
-if st.button('accuracy y_train à 5 variables'):                    if st.button('accuracy y_train à 9 variables'):
-   st.button('0,87')                                                  st.button('0,89')
-if st.button('accuracy y_train à 5 variables'):                    if st.button('accuracy y_train à 5 variables'):   
-   st.button(' 0,81')                                                 st.button(' 0,84')  
-
-
-
+if st.button('accuracy y_train à 5 variables'):                   
+   st.button('0,87')                                                  
+if st.button('accuracy y_train à 5 variables'):                      
+   st.button(' 0,81')                                                
+if st.button('accuracy y_train à 9 variables'):
+   st.button('0,89')
+if st.button('accuracy y_train à 5 variables'): 
+   st.button(' 0,84')  
         
 
 
