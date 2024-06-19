@@ -167,7 +167,7 @@ if st.button('accuracy y_test à 5 variables'):
    st.button(' 0,81')                                                
 if st.button('accuracy y_train à 9 variables'):
    st.button('0,89')
-if st.button('accuracy y_test à 5 variables'): 
+if st.button('accuracy y_test à 9 variables'): 
    st.button(' 0,84')  
         
 
