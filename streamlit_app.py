@@ -24,7 +24,7 @@ st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
-if st.checkbox("code"):
+if st.checkbox("Code"):
     st.code("feats = bank_cleaned.drop(['deposit'], axis = 1)")
     st.code("target = bank_cleaned['deposit']")
 if st.button("feats"):
