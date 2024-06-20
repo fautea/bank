@@ -160,12 +160,29 @@ feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
 feat_importances.plot(kind='bar', figsize=(8,6))
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
+   st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
 st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
 if st.button('accuracy y_train et y_test à 5 variables'):                   
    st.button('0,87 & 0,81')                                                                                                 
 if st.button('accuracy y_train et y_test à 9 variables'):
-   st.button('0,89 & 0,84')
-
+   st.button('1 & 0,70')
+if techniques=='Suppression variable Duration':
+    st.button('accuracy y_train et y_test sans la variable Duration'): 
+    st.button('')
+    st.write(' st.write(L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
+    st.write('Cependant nous n’avons plus d’overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
+if techniques=='Bagging':
+    st.button('accuracy y_train et y_test Bagging')
+    st.button('')
+    st.write('Nous n’avons pas vu de différence en utilisant le Bagging sur l’overfitting')
+if techniques=='RandomOverSampler'
+    st.button('accuracy y_train et y_test RandomOverSampler')
+    st.button('')
+    st.write('Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.') 
+    st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
+if techniques=='GridSearchCV'
+    st.button('Best Hyperparameter')
+    st.button('')
         
 
 
