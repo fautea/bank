@@ -174,8 +174,8 @@ if techniques=='Importance_feature':
       st.button('0.87 & 0.81')                                                                                                 
    if st.button('accuracy y_train et y_test à 9 variables'):
       st.button('0.89 & 0.84')
-       st.write("le fait de ne garder que les 5 variables les plus importantes réduit notre score")
-       st.write("le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
+      st.write("le fait de ne garder que les 5 variables les plus importantes réduit notre score")
+      st.write("le fait de ne garder que les 9 variables les plus importantes n’a pas d’impact sur le score")
 
 if techniques=='Suppression variable Duration':
     if st.button('accuracy y_train et y_test sans la variable Duration'): 
