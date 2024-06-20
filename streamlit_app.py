@@ -181,7 +181,7 @@ if techniques=='RandomOverSampler':
     st.write("Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.") 
     st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
 if techniques=='GridSearchCV':
-    if st.button('Best Hyperparameter')
+    if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
         
 
