@@ -169,7 +169,7 @@ if techniques=='Importance_feature':
 if techniques=='Suppression variable Duration':
     if st.button('accuracy y_train et y_test sans la variable Duration'): 
        st.button('')
-       st.write(' st.write(L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
+       st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write('Cependant nous n’avons plus d’overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
 if techniques=='Bagging':
     if st.button('accuracy y_train et y_test Bagging'):
