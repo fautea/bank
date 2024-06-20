@@ -161,7 +161,7 @@ feat_importances.plot(kind='bar', figsize=(8,6))
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
    st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
-st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
+   st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
 if st.button('accuracy y_train et y_test à 5 variables'):                   
    st.button('0,87 & 0,81')                                                                                                 
 if st.button('accuracy y_train et y_test à 9 variables'):
@@ -182,7 +182,7 @@ if techniques=='RandomOverSampler':
     st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
 if techniques=='GridSearchCV':
     st.button('Best Hyperparameter')
-    st.button('')
+    st.button('{'max_depth': 10, 'n_estimators': 1000}')
         
 
 
