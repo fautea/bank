@@ -196,7 +196,7 @@ if techniques=='GridSearchCV':
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
     if st.button('accuracy y_train et y_test avec max_depth:10'):
         st.button("0.87 & 0.83")
-        st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting")
+        st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un score de prédiléction fiable et robuste.")
         
 
 
