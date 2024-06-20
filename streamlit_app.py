@@ -27,7 +27,7 @@ bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
 st.subheader('Modélisation')
 st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
 if st.button('Variable Deposit'):
-    st.button(bank_cleaned['deposit'].head())
+    st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
 target = bank_cleaned['deposit']
 st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "target"')
