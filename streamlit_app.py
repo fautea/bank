@@ -47,13 +47,14 @@ cols = ['age','balance','day','campaign','previous','duration']
 scaler = StandardScaler()
 cols =['age','balance','day','campaign','previous','duration']
 cols1 = bank_cleaned[['age','balance','day','campaign','previous','duration']]
+if st.button("Code 2"):
+  st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
+  st.code("X_test[cols] = scaler.transform(X_test[cols]")
 if st.checkbox("Variables numériques"):
    st.dataframe(cols1)
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
-if st.button("Code 2"):
-  st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
-  st.code("X_test[cols] = scaler.transform(X_test[cols]")
+
 st.write("3. Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule")
 if st.button('Définition'):
    st.code('def replace_yes_no(x)')
