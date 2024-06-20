@@ -170,10 +170,10 @@ if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
    st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
    st.write("Suite à l'analyse de l'importance des variables, nous allons réduire notre jeu de données à 5 et 9 variables:")
-   st.button('accuracy y_train et y_test à 5 variables')                   
-   st.button('0.87 & 0.81')                                                                                                 
-   st.button('accuracy y_train et y_test à 9 variables')
-   st.button('0.89 & 0.84')
+   if st.button('accuracy y_train et y_test à 5 variables'):                   
+      st.button('0.87 & 0.81')                                                                                                 
+   if st.button('accuracy y_train et y_test à 9 variables'):
+      st.button('0.89 & 0.84')
 if techniques=='Suppression variable Duration':
     if st.button('accuracy y_train et y_test sans la variable Duration'): 
        st.button('0.79 & 0.71')
