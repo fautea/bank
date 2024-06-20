@@ -167,16 +167,16 @@ if techniques=='Importance_feature':
    st.button('accuracy y_train et y_test à 9 variables')
    st.button('1 & 0.70')
 if techniques=='Suppression variable Duration':
-    if st.button('accuracy y_train et y_test sans la variable Duration') 
+    if st.button('accuracy y_train et y_test sans la variable Duration'): 
        st.button('')
        st.write(' st.write(L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write('Cependant nous n’avons plus d’overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
 if techniques=='Bagging':
-    if st.button('accuracy y_train et y_test Bagging')
+    if st.button('accuracy y_train et y_test Bagging'):
        st.button('')
        st.write('Nous n’avons pas vu de différence en utilisant le Bagging sur l’overfitting')
 if techniques=='RandomOverSampler':
-    if st.button('accuracy y_train et y_test RandomOverSampler')
+    if st.button('accuracy y_train et y_test RandomOverSampler'):
        st.button('')
        st.write("Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.") 
        st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
