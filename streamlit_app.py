@@ -185,7 +185,7 @@ if techniques=='Suppression variable Duration':
 if techniques=='Bagging':
     if st.button('accuracy y_train et y_test Bagging'):
        st.button('1 & 0.84')
-       st.write('Nous n’avons pas vu de différence en utilisant le Bagging sur l’overfitting')
+       st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
 if techniques=='RandomOverSampler':
     if st.button('accuracy y_train et y_test RandomOverSampler'):
        st.button('')
