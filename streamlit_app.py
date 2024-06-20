@@ -178,7 +178,7 @@ if techniques=='Bagging':
 if techniques=='RandomOverSampler'
     st.button('accuracy y_train et y_test RandomOverSampler')
     st.button('')
-    st.write('Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.') 
+    st.write("Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.") 
     st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
 if techniques=='GridSearchCV'
     st.button('Best Hyperparameter')
