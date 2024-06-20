@@ -165,15 +165,15 @@ if techniques=='Importance_feature':
    st.button('accuracy y_train et y_test à 5 variables')                   
    st.button('0.87 & 0.81')                                                                                                 
    st.button('accuracy y_train et y_test à 9 variables')
-   st.button('1 & 0.70')
+   st.button('0.89 & 0.84')
 if techniques=='Suppression variable Duration':
     if st.button('accuracy y_train et y_test sans la variable Duration'): 
-       st.button('')
+       st.button('0.79 & 0.71')
        st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
-       st.write('Cependant nous n’avons plus d’overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
+       st.write('Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
 if techniques=='Bagging':
     if st.button('accuracy y_train et y_test Bagging'):
-       st.button('')
+       st.button('1 & 0.84')
        st.write('Nous n’avons pas vu de différence en utilisant le Bagging sur l’overfitting')
 if techniques=='RandomOverSampler':
     if st.button('accuracy y_train et y_test RandomOverSampler'):
@@ -183,6 +183,9 @@ if techniques=='RandomOverSampler':
 if techniques=='GridSearchCV':
     if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
+    if st.button('accuracy y_train et y_test avec max_depth:10'):
+        st.button("0.87 & 0.83")
+        st.write('En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting')
         
 
 
