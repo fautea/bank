@@ -182,7 +182,7 @@ if techniques=='RandomOverSampler':
     st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
 if techniques=='GridSearchCV':
     st.button('Best Hyperparameter')
-    st.button("{'max_depth': 10, 'n_estimators': 1000}")
+    st.write("{'max_depth': 10, 'n_estimators': 1000}")
         
 
 
