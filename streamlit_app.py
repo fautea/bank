@@ -167,7 +167,7 @@ if st.button('accuracy y_train et y_test à 5 variables'):
 if st.button('accuracy y_train et y_test à 9 variables'):
    st.button('1 & 0,70')
 if techniques=='Suppression variable Duration':
-    st.button('accuracy y_train et y_test sans la variable Duration'): 
+    st.button('accuracy y_train et y_test sans la variable Duration') 
     st.button('')
     st.write(' st.write(L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
     st.write('Cependant nous n’avons plus d’overfitting sur le modèle Logistic regression mais le score est plutôt faible.')
