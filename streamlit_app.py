@@ -125,7 +125,7 @@ st.write('X_train')
 st.write(X_train.head())
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-st.write('LabelEncoder'):
+st.write('LabelEncoder')
 st.code('y_train= le.fit_transform(y_train)')
 st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
