@@ -174,16 +174,17 @@ if techniques=='Bagging':
     if st.button('accuracy y_train et y_test Bagging'):
        st.button('1 & 0.84')
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
-if techniques=='RandomOverSampler':
-    if st.button('accuracy y_train et y_test avec SMOTE'):
-       st.button('0.83 & 0.83')
-       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
-       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
 if techniques=='GridSearchCV':
     if st.button('Best Hyperparameter'):
        st.write("{'max_depth': 10, 'n_estimators': 1000}")
     if st.button('accuracy y_train et y_test avec max_depth:10'):
        st.button("0.87 & 0.83")
+if techniques=='RandomOverSampler':
+    if st.button('accuracy y_train et y_test avec SMOTE'):
+       st.button('0.83 & 0.83')
+       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
+       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
+
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
    st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
