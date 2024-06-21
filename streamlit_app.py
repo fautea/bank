@@ -50,18 +50,18 @@ cols1 = bank_cleaned[['age','balance','day','campaign','previous','duration']]
 if st.button("Code 2"):
   st.code("X_train[cols] = scaler.fit_transform(X_train[cols]")
   st.code("X_test[cols] = scaler.transform(X_test[cols]")
-if st.checkbox("Variables numériques"):
-   st.dataframe(cols1)
+st.write("Variables numériques"):
+st.dataframe(cols1)
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 
 st.write("3. Ensuite nous encoderons les variables explicatives Housing, Default et Loan de valeur booléenne avec la formule")
-if st.button('Définition'):
-   st.code('def replace_yes_no(x)')
-   st.code("if x=='no':")
-   st.code("  return 0")
-   st.code("if x=='yes':")
-   st.code("  return 1")
+st.write('Définition'):
+st.code('def replace_yes_no(x)')
+st.code("if x=='no':")
+st.code("  return 0")
+st.code("if x=='yes':")
+st.code("  return 1")
 def replace_yes_no(x):
   if x == 'no':
     return 0
@@ -115,19 +115,19 @@ from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
 st.write('5. Nous nous servirons de la fonction get.dummies pour les variables de chaîne de caractères')
-if st.button('get_dummies'):
-   st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
-   st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
+st.write('get_dummies'):
+st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
+st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
-if st.button('X_train'):
-    st.write(X_train.head())
+st.write('X_train'):
+st.write(X_train.head())
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
-if st.button('LabelEncoder'):
-   st.code('y_train= le.fit_transform(y_train)')
-   st.code('le.transform(y_test)')
+st.write('LabelEncoder'):
+st.code('y_train= le.fit_transform(y_train)')
+st.code('le.transform(y_test)')
 y_train = le.fit_transform(y_train)
 y_test = le.transform(y_test)
 from sklearn.linear_model import LogisticRegression
@@ -149,6 +149,7 @@ print('Accuracy score du Decision Tree (train) : ',treecl.score(X_train, y_train
 
 
 st.subheader('Résultats du modèle')
+st.write("Nous avons sélectionné 3 techniques de classification pour entrainer et tester notre modèle")
 modèle_sélectionné=st.selectbox(label="Modèle", options=['Régression logistique','Decision Tree','Random Forest'])
 
 if modèle_sélectionné=='Régression logistique':
