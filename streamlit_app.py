@@ -25,7 +25,7 @@ bank_cleaned = bank.drop(bank.loc[bank["job"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(bank.loc[bank["education"] == "unknown"].index, inplace=True)
 bank_cleaned = bank.drop(['contact', 'pdays'], axis = 1)
 st.subheader('Modélisation')
-st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible deposit')
+st.write('Le modèle choisi sera la classification en raison des valeurs discrètes de la variable cible Deposit')
 if st.button('Variable Deposit'):
     st.write(bank_cleaned['deposit'].head())
 feats = bank_cleaned.drop(['deposit'], axis = 1)
