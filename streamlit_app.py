@@ -191,7 +191,7 @@ if techniques=='Bagging':
        st.button('1 & 0.84')
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
 if techniques=='RandomOverSampler':
-    if st.button('accuracy y_train et y_test RandomOverSampler'):
+    if st.button('accuracy y_train et y_test avec SMOTE'):
        st.button('0.71 & 0.72')
        st.write("Le résultat a été concluant avec un résultat de 0,71 sur le modèle d'entraînement.") 
        st.write('En revanche, le résultat a nettement baissé sur le modèle test avec également un résultat de 0.72, jugé pas assez satisfaisant.')
