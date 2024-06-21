@@ -55,7 +55,7 @@ if st.checkbox("Variables numériques"):
 X_train[cols]=scaler.fit_transform(X_train[cols])
 X_test[cols] = scaler.transform(X_test[cols])
 
-st.write("3. Ensuite nous encoderons les variables explicatives de valeur booléenne avec la formule")
+st.write("3. Ensuite nous encoderons les variables explicatives Housing, Default et Loan de valeur booléenne avec la formule")
 if st.button('Définition'):
    st.code('def replace_yes_no(x)')
    st.code("if x=='no':")
@@ -183,6 +183,7 @@ if techniques=='Suppression variable Duration':
        st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
 if techniques=='Bagging':
+    st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
     if st.button('accuracy y_train et y_test Bagging'):
        st.button('1 & 0.84')
        st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
