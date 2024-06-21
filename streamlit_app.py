@@ -102,8 +102,7 @@ def replace_month(x):
     return 11
   if x == 'dec':
     return 12
-if st.button('X_train'):
-    st.write(X_train.head())
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
@@ -122,6 +121,8 @@ if st.button('get_dummies'):
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
+if st.button('X_train'):
+    st.write(X_train.head())
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
 if st.button('LabelEncoder'):
