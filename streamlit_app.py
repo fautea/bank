@@ -164,7 +164,7 @@ if modèle_sélectionné=='Random Forest':
 st.write("Le modèle RandomForest est donc le meilleur modèle au vu des résultats mais nous constatons un problème d'overfitting")
 st.write('Afin d’évaluer la précision de notre modèle, nous avons vérifié sa volatilité avec la technique de validation croisée sur le modèle RandomForest. Celle-ci étant peu volatile [0.77762106 0.74424071 0.78232252 0.83921016 0.82267168] , nous pouvons considérer que le modèle est fiable via un train_test_split.')
 st.write("Techniques utilisées pour baisser l'overfitting")
-techniques=st.selectbox(label='Techniques', options=['Bagging','RandomOverSampler','GridSearchCV''Importance_feature','Suppression variable Duration'])
+techniques=st.selectbox(label='Techniques', options=['Bagging','RandomOverSampler','GridSearchCV','Importance_feature','Suppression variable Duration'])
 
 feat_importances = pd.DataFrame(forest.feature_importances_, index=X_test.columns, columns =['Importance'] )
 feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
