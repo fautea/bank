@@ -102,6 +102,8 @@ def replace_month(x):
     return 11
   if x == 'dec':
     return 12
+if st.button('X_train'):
+    st.write(X_train.head())
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
