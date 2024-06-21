@@ -34,9 +34,9 @@ st.write('Le jeu de données sera donc séparé en 2 dataframes: "feats" et "tar
 if st.button("Code"):
     st.code("feats = bank_cleaned.drop(['deposit'], axis = 1)")
     st.code("target = bank_cleaned['deposit']")
-if st.button("feats"):
+
     st.dataframe(feats)
-if st.button("target"):
+
     st.dataframe(target)
 st.write("1. Nous allons procéder à la séparation du jeu de données en jeu d'entrainement X_train et test X_test avec la répartition 80 et 20%")
 X_train, X_test, y_train, y_test = train_test_split(feats, target, test_size = 0.2, random_state=42)
