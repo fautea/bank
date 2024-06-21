@@ -115,13 +115,13 @@ from sklearn.impute import SimpleImputer
 X_train['month'] = X_train['month'].apply(replace_month)
 X_test['month'] = X_test['month'].apply(replace_month)
 st.write('5. Nous nous servirons de la fonction get.dummies pour les variables de chaîne de caractères')
-st.write('get_dummies'):
+st.write('get_dummies')
 st.code("X_train = pd.get_dummies(X_train, dtype = 'int')")
 st.code("X_test= pd.get_dummies(X_test, dtype = 'int')")
 
 X_train = pd.get_dummies(X_train, dtype = 'int')
 X_test= pd.get_dummies(X_test, dtype = 'int')
-st.write('X_train'):
+st.write('X_train')
 st.write(X_train.head())
 st.write("6. Et pour la dernière étape, nous procéderons à l'encodage de la variable cible avec LabelEncoder")
 le = LabelEncoder()
