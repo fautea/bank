@@ -164,11 +164,26 @@ if modèle_sélectionné=='Random Forest':
 st.write("Le modèle RandomForest est donc le meilleur modèle au vu des résultats mais nous constatons un problème d'overfitting")
 st.write('Afin d’évaluer la précision de notre modèle, nous avons vérifié sa volatilité avec la technique de validation croisée sur le modèle RandomForest. Celle-ci étant peu volatile [0.77762106 0.74424071 0.78232252 0.83921016 0.82267168] , nous pouvons considérer que le modèle est fiable via un train_test_split.')
 st.write("Techniques utilisées pour baisser l'overfitting")
-techniques=st.selectbox(label='Techniques', options=['Importance_feature','Suppression variable Duration','Bagging','RandomOverSampler','GridSearchCV'])
+techniques=st.selectbox(label='Techniques', options=['Bagging','RandomOverSampler','GridSearchCV''Importance_feature','Suppression variable Duration'])
 
 feat_importances = pd.DataFrame(forest.feature_importances_, index=X_test.columns, columns =['Importance'] )
 feat_importances.sort_values(by='Importance', ascending=False, inplace=True)
 feat_importances.plot(kind='bar', figsize=(8,6))
+if techniques=='Bagging':
+    st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
+    if st.button('accuracy y_train et y_test Bagging'):
+       st.button('1 & 0.84')
+       st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
+if techniques=='RandomOverSampler':
+    if st.button('accuracy y_train et y_test avec SMOTE'):
+       st.button('0.83 & 0.83')
+       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
+       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
+if techniques=='GridSearchCV':
+    if st.button('Best Hyperparameter'):
+       st.write("{'max_depth': 10, 'n_estimators': 1000}")
+    if st.button('accuracy y_train et y_test avec max_depth:10'):
+       st.button("0.87 & 0.83")
 if techniques=='Importance_feature':
    st.pyplot(feat_importances.plot(kind='bar').figure)
    st.write('Nous remarquons que la variable Duration prédomine de manière significative sur toutes les autres variables')
@@ -185,22 +200,9 @@ if techniques=='Suppression variable Duration':
        st.button('0.79 & 0.71')
        st.write('L’overfitting sur la random forest a empiré en faisant baisser le score de notre jeu de test.') 
        st.write("Cependant nous avons pu observer une baisse de l'overfitting sur le modèle Logistic regression mais le score est plutôt faible.")
-if techniques=='Bagging':
-    st.write("La méthode Bagging permet d'améliorer la performance et la stabilité des algorithmes en réduisant la variance et en limitant l'overfitting")
-    if st.button('accuracy y_train et y_test Bagging'):
-       st.button('1 & 0.84')
-       st.write('Nous n’avons pas observé de différence en utilisant le Bagging sur l’overfitting')
-if techniques=='RandomOverSampler':
-    if st.button('accuracy y_train et y_test avec SMOTE'):
-       st.button('0.83 & 0.83')
-       st.write("Le résultat a été concluant avec un résultat de 0,83 sur le modèle d'entraînement.") 
-       st.write('Quant au modèle test, nous obtenons également un très bon score avec 0.83.')
-if techniques=='GridSearchCV':
-    if st.button('Best Hyperparameter'):
-       st.write("{'max_depth': 10, 'n_estimators': 1000}")
-    if st.button('accuracy y_train et y_test avec max_depth:10'):
-        st.button("0.87 & 0.83")
-        st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+
+       st.write("En conclusion, l'hyperparamètre max_depth semble être le meilleure solution pour éviter l'overfitting et conserver un modèle prédictif fiable et robuste.")
+        
         
 
 
